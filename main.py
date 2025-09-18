@@ -79,9 +79,6 @@ def start_game():
         print("\nНачинается бой против\n")
         print(enemy)
         time.sleep(3)
-        # print('\nВаш герой\n')
-        # print(hero)
-        # time.sleep(3)
         res = fight(hero, enemy)
 
         if res == 1:

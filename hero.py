@@ -115,6 +115,8 @@ class Hero(Character):
         if not found:
             raise ValueError("Класс не найден")
         
+        self._health = self._health + self._stamina
+        
     def add_new_class(self, class_name):
         # добавить проверку что нет класса и что сумма уровней ниже 3
         if self.get_current_level() >= 3:
@@ -124,6 +126,7 @@ class Hero(Character):
                 raise ValueError("Нельзя добавить класс повторно")
         
         self._character_type.append((class_name, 1))
+        self._health = self._health + self._stamina
 
 
     def change_weapon(self, new_weapon):
@@ -166,7 +169,6 @@ class Hero(Character):
                 for character in self._character_type:
                     if el == character[0]:
                         self.update_class(el)
-                        self.set_health(self.get_health() + self.get_stamina())
                         found = True
                         print(f"Увеличили уровень у {el}")
                 
